@@ -38,7 +38,6 @@ public class UiTests {
     }
 
     private void assertAnswer(String value, String result){
-        $x("//button[@id='L2AGLb']").click();
         $x("//textarea[@name='q']").sendKeys(value + "=");
         String answer = $x("//*[@id='jZ2SBf']/div[1]/span/b").getText();
         Assertions.assertEquals(result, answer);
@@ -47,6 +46,7 @@ public class UiTests {
 
     @Test
     public void calcPlusTest2() {
+        $x("//button[@id='L2AGLb']").click();
         assertAnswer("1+3", "4");
     }
 
