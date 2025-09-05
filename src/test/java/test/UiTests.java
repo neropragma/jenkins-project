@@ -25,6 +25,7 @@ public class UiTests {
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--start-maximized");
+        options.addArguments("--no-sandbox");
 
         Configuration.browserCapabilities = options;
         Configuration.headless = true;
