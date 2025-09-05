@@ -16,6 +16,7 @@ node {
                 }
             } else {
                 echo "Current branch is main"
+                getProject("$base_git_url", "$branch_cutted")
             }
         }
 
