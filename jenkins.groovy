@@ -1,13 +1,13 @@
 task_branch = "${TEST_BRANCH_NAME}"
 def branch_cutted = task_branch.contains("origin") ? task_branch.split('/')[1] : task_branch.trim()
 currentBuild.displayName = "$branch_cutted"
-base_git_url = "https://gitlab.com/epickonfetka/cicd-threadqa.git"
+base_git_url = "https://github.com/neropragma/jenkins-project.git"
 
 
 node {
     withEnv(["branch=${branch_cutted}", "base_url=${base_git_url}"]) {
         stage("Checkout Branch") {
-            if (!"$branch_cutted".contains("master")) {
+            if (!"$branch_cutted".contains("main")) {
                 try {
                     getProject("$base_git_url", "$branch_cutted")
                 } catch (err) {
@@ -15,7 +15,7 @@ node {
                     throw ("${err}")
                 }
             } else {
-                echo "Current branch is master"
+                echo "Current branch is main"
             }
         }
 
